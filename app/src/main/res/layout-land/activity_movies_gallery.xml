@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gallery_gradient"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    tools:context=".activity.ActivityMoviesGallery">
+
+    <FrameLayout
+        android:id="@id/flContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:paddingEnd="@dimen/unit2"
+        android:paddingStart="@dimen/unit2"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@id/abPrimary"
+        style="@style/AppTheme.ActionBar.Light.Transparent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height_land"
+        android:fitsSystemWindows="false">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_scrollFlags="scroll"
+            app:statusBarScrim="@color/grd_1_s">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@id/tbPrimary"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_collapseMode="parallax"
+                app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+            <HorizontalScrollView
+                android:id="@id/hsvSortFilters"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="@dimen/unit2"
+                android:scrollbars="none"
+                android:visibility="gone">
+
+                <RadioGroup
+                    android:id="@id/rgSortFilter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/unit5"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@id/rbSortAll"
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit7"
+                        android:background="@null"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="@string/all"
+                        android:textColor="@color/radio_btn_primary"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <RadioButton
+                        android:id="@id/rbSortPopularity"
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit7"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/popularity"
+                        android:textColor="@color/radio_btn_primary"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <RadioButton
+                        android:id="@id/rbSortRating"
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit7"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/rating"
+                        android:textColor="@color/radio_btn_primary"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <RadioButton
+                        android:id="@id/rbSortDate"
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit7"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/release_date"
+                        android:textColor="@color/radio_btn_primary"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+
+                    <RadioButton
+                        android:id="@id/rbSortTitle"
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit7"
+                        android:background="@null"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="@string/title"
+                        android:textColor="@color/radio_btn_primary"
+                        android:textStyle="bold"
+                        android:visibility="gone" />
+                </RadioGroup>
+            </HorizontalScrollView>
+
+            <TextView
+                style="@style/typography_title_light"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:gravity="center"
+                android:text="@string/movies"
+                app:layout_collapseMode="parallax" />
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+
+    <com.yahoo.rahul.moviesdoughnut.customClass.SearchTextInputLayout
+        android:id="@id/tilSearch"
+        android:layout_width="@dimen/search_bar_w"
+        android:layout_height="@dimen/search_bar_h"
+        android:background="@drawable/shape_round_rect"
+        android:backgroundTint="@color/sky_blue_s2"
+        android:gravity="center"
+        app:hintEnabled="false"
+        app:hintTextAppearance="@style/typography_button"
+        app:layout_anchor="@id/abPrimary"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="com.yahoo.rahul.moviesdoughnut.customClass.ScrollingBehaviourViewGroup">
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_search_dark"
+            android:hint="@string/search"
+            android:inputType="textAutoComplete"
+            android:paddingEnd="@dimen/unit3"
+            android:paddingStart="@dimen/unit3"
+            android:textColor="@color/shade0"
+            android:textColorHint="@color/sky_blue_s1"
+            android:textSize="@dimen/typography_body2"
+            android:textStyle="bold" />
+
+    </com.yahoo.rahul.moviesdoughnut.customClass.SearchTextInputLayout>
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="abPrimary" type="id" />
+    <item name="action_filter" type="id">action_filter</item>
+    <item name="cvCast" type="id">tvPhoto</item>
+    <item name="cvFloating" type="id">tvPhoto</item>
+    <item name="etSearch" type="id">etSearch</item>
+    <item name="flContainer" type="id">flContainer</item>
+    <item name="hsvSortFilters" type="id" />
+    <item name="ivCast" type="id" />
+    <item name="ivGallery1" type="id" />
+    <item name="ivGallery2" type="id" />
+    <item name="ivGallery3" type="id" />
+    <item name="ivGallery4" type="id" />
+    <item name="ivGallery5" type="id" />
+    <item name="ivGallery6" type="id" />
+    <item name="ivGallery7" type="id" />
+    <item name="ivLoading" type="id" />
+    <item name="ivPoster" type="id" />
+    <item name="rbSortAll" type="id" />
+    <item name="rbSortDate" type="id" />
+    <item name="rbSortPopularity" type="id" />
+    <item name="rbSortRating" type="id" />
+    <item name="rbSortTitle" type="id" />
+    <item name="rgSortFilter" type="id">rgSortFilter</item>
+    <item name="rvCastContainer" type="id" />
+    <item name="rvContainer" type="id" />
+    <item name="rvContainer_filtered_movie" type="id">rvContainer_filtered_movie</item>
+    <item name="rvContainer_popular_movie" type="id" />
+    <item name="rvContainer_running_movie" type="id" />
+    <item name="rvContainer_top_movie" type="id" />
+    <item name="rvContainer_upcoming_movie" type="id" />
+    <item name="rvGenreContainer" type="id" />
+    <item name="tbPrimary" type="id" />
+    <item name="tblPrimary" type="id" />
+    <item name="tilSearch" type="id" />
+    <item name="tvChipTextView" type="id" />
+    <item name="tvDescription" type="id" />
+    <item name="tvDuration" type="id" />
+    <item name="tvMovieName" type="id" />
+    <item name="tvPhoto" type="id">tvPhoto</item>
+    <item name="tvPhotoCount" type="id">tvPhotoCount</item>
+    <item name="tvRating" type="id" />
+    <item name="tvReleaseDate" type="id" />
+    <item name="tvSectionTitle" type="id" />
+    <item name="tvTitle" type="id">tvTitle</item>
+    <item name="nsvContainer" type="id">nsvContainer</item>
+    <item name="llWebsite" type="id">llWebsite</item>
+    <item name="llImdb" type="id">llImdb</item>
+    <item name="llFacebook" type="id">llFacebook</item>
+    <item name="llTwitter" type="id">llTwitter</item>
+    <item name="llInstagram" type="id">llInstagram</item>
+    <item name="tvInstagram" type="id">tvInstagram</item>
+    <item name="tvTwitter" type="id">tvTwitter</item>
+    <item name="tvFacebook" type="id">tvFacebook</item>
+    <item name="tvImdb" type="id">tvImdb</item>
+    <item name="tvWebsite" type="id">tvWebsite</item>
+</resources>

@@ -1,0 +1,543 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    android:id="@+id/idd1" xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ActivityMovieDetail">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@id/abPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="false"
+        android:theme="@style/AppTheme.ActionBar.Dark">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@id/tbPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+        <TextView
+            android:id="@id/tvTitle"
+            style="@style/typography_title_light"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:gravity="center"
+            android:singleLine="true"
+            android:visibility="gone" />
+    </android.support.design.widget.AppBarLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_bar_height_land"
+        android:background="?attr/colorPrimary"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+    <android.support.v7.widget.CardView
+        android:id="@id/cvFloating"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/unit5"
+        android:layout_marginEnd="@dimen/unit5"
+        android:layout_marginStart="@dimen/unit5"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        app:cardBackgroundColor="@color/shade0"
+        app:cardCornerRadius="@dimen/radius4"
+        app:cardElevation="@dimen/elevation9"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:transitionName="@string/cv_poster_transition"
+                android:id="@id/ivPoster"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentLeft="true"
+                android:adjustViewBounds="true" />
+
+            <android.support.v4.widget.NestedScrollView
+                android:id="@id/nsvContainer"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@id/ivPoster"
+                android:overScrollMode="never">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:paddingBottom="@dimen/unit8"
+                    android:paddingTop="@dimen/unit8">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit4"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8">
+
+                        <TextView
+                            android:id="@id/tvMovieName"
+                            style="@style/typography_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:layout_toStartOf="@id/tvDuration" />
+
+                        <TextView
+                            android:id="@id/tvDuration"
+                            style="@style/typography_subheading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_marginStart="@dimen/unit2"
+                            android:textColor="@color/rating_high"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@id/tvReleaseDate"
+                            style="@style/typography_body1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/tvMovieName" />
+
+                    </RelativeLayout>
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit4"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@id/rvGenreContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/unit8"
+                            android:layout_marginStart="@dimen/unit8"
+                            android:overScrollMode="never"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+                        <ImageView
+                            android:layout_width="@dimen/unit8"
+                            android:layout_height="@dimen/no_height"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/gradient_shade0_l"
+                            app:layout_constraintBottom_toBottomOf="@id/rvGenreContainer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="@dimen/unit8"
+                            android:layout_height="@dimen/no_height"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/gradient_shade0_r"
+                            app:layout_constraintBottom_toBottomOf="@id/rvGenreContainer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <TextView
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit3"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8"
+                        android:text="@string/description"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@id/tvDescription"
+                        style="@style/typography_body1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit4"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8" />
+
+                    <TextView
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit3"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8"
+                        android:text="@string/cast"
+                        android:textStyle="bold" />
+
+                    <android.support.constraint.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit4"
+                        android:background="@color/shade5"
+                        android:clipChildren="false"
+                        android:clipToPadding="false">
+
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@id/rvCastContainer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/unit8"
+                            android:layout_marginStart="@dimen/unit8"
+                            android:clipChildren="false"
+                            android:clipToPadding="false"
+                            android:overScrollMode="never"
+                            android:paddingBottom="@dimen/unit4"
+                            android:paddingTop="@dimen/unit4"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent" />
+
+
+                        <ImageView
+                            android:layout_width="@dimen/unit8"
+                            android:layout_height="@dimen/no_height"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/gradient_shade3_l"
+                            app:layout_constraintBottom_toBottomOf="@id/rvCastContainer"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <ImageView
+                            android:layout_width="@dimen/unit8"
+                            android:layout_height="@dimen/no_height"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/gradient_shade3_r"
+                            app:layout_constraintBottom_toBottomOf="@id/rvCastContainer"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                    </android.support.constraint.ConstraintLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit3"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8">
+
+                        <TextView
+                            android:id="@id/tvPhoto"
+                            style="@style/typography_subheading"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentStart="true"
+                            android:text="@string/photos"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@id/tvPhotoCount"
+                            style="@style/typography_exponent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentTop="true"
+                            android:layout_toEndOf="@id/tvPhoto"
+                            android:textColor="@color/shade8"
+                            android:textStyle="normal" />
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit4"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="2"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <ImageView
+                                    android:id="@id/ivGallery1"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent" />
+                            </android.support.v7.widget.CardView>
+
+
+                            <Space
+                                android:layout_width="@dimen/unit2"
+                                android:layout_height="wrap_content" />
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                    android:id="@id/ivGallery2"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/no_height" />
+                            </android.support.v7.widget.CardView>
+
+                            <Space
+                                android:layout_width="@dimen/unit2"
+                                android:layout_height="wrap_content" />
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="3"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                    android:id="@id/ivGallery3"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/no_height" />
+                            </android.support.v7.widget.CardView>
+                        </LinearLayout>
+
+                        <Space
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/unit2" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                    android:id="@id/ivGallery4"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/no_height" />
+                            </android.support.v7.widget.CardView>
+
+
+                            <Space
+                                android:layout_width="@dimen/unit2"
+                                android:layout_height="wrap_content" />
+
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                    android:id="@id/ivGallery5"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/no_height" />
+                            </android.support.v7.widget.CardView>
+
+                            <Space
+                                android:layout_width="@dimen/unit2"
+                                android:layout_height="wrap_content" />
+
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                    android:id="@id/ivGallery6"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/no_height" />
+                            </android.support.v7.widget.CardView>
+
+                            <Space
+                                android:layout_width="@dimen/unit2"
+                                android:layout_height="wrap_content" />
+
+                            <android.support.v7.widget.CardView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                app:cardCornerRadius="@dimen/radius2"
+                                app:cardElevation="@dimen/elevation0">
+
+                                <FrameLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content">
+
+                                    <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                        android:id="@id/ivGallery7"
+                                        android:layout_width="match_parent"
+                                        android:layout_height="@dimen/no_height" />
+
+                                    <ImageView
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:background="@color/transparent_black"
+                                        android:scaleType="center"
+                                        android:src="@drawable/ic_more" />
+                                </FrameLayout>
+                            </android.support.v7.widget.CardView>
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <TextView
+                        style="@style/typography_subheading"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/unit3"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8"
+                        android:text="@string/stay_connected"
+                        android:textStyle="bold" />
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/unit8"
+                        android:layout_marginStart="@dimen/unit8"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:id="@id/llWebsite"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                android:layout_width="@dimen/social_icon"
+                                android:layout_height="@dimen/no_height"
+                                android:src="@drawable/ic_link" />
+
+                            <TextView
+                                android:id="@id/tvWebsite"
+                                style="@style/typography_caption_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/website" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@id/llImdb"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:clickable="true"
+                            android:foreground="?android:attr/selectableItemBackground"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                android:layout_width="@dimen/social_icon"
+                                android:layout_height="@dimen/no_height"
+                                android:src="@drawable/ic_imdb" />
+
+                            <TextView
+                                android:id="@id/tvImdb"
+                                style="@style/typography_caption_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/imdb" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@id/llFacebook"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                android:layout_width="@dimen/social_icon"
+                                android:layout_height="@dimen/no_height"
+                                android:src="@drawable/ic_facebook" />
+
+                            <TextView
+                                android:id="@id/tvFacebook"
+                                style="@style/typography_caption_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@id/llTwitter"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                android:layout_width="@dimen/social_icon"
+                                android:layout_height="@dimen/no_height"
+                                android:src="@drawable/ic_twitter" />
+
+                            <TextView
+                                android:id="@id/tvTwitter"
+                                style="@style/typography_caption_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@id/llInstagram"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:visibility="gone">
+
+                            <com.yahoo.rahul.moviesdoughnut.customClass.SquareImageView
+                                android:layout_width="@dimen/social_icon"
+                                android:layout_height="@dimen/no_height"
+                                android:src="@drawable/ic_instagram" />
+
+                            <TextView
+                                android:id="@id/tvInstagram"
+                                style="@style/typography_caption_bold"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </android.support.v4.widget.NestedScrollView>
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</android.support.design.widget.CoordinatorLayout>

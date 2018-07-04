@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@id/tvChipTextView"
+    style="@style/typography_caption"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@drawable/shape_round_rect_stroke"
+    android:gravity="center"
+    android:paddingBottom="@dimen/unit1"
+    android:paddingEnd="@dimen/unit3"
+    android:paddingStart="@dimen/unit3"
+    android:paddingTop="@dimen/unit1"
+    android:textStyle="bold"
+    android:textColor="@color/shade5"/>

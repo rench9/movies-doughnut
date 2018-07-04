@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/shade5</color>
+    <color name="colorPrimaryDark">@color/shade6</color>
+    <color name="colorAccent">@color/shade8</color>
+
+    <!-- Primary Shades -->
+    <color name="shade0">#ffffff</color>
+    <color name="shade1">#fbfbfb</color>
+    <color name="shade2">#f7f7f7</color>
+    <color name="shade3">#d3d5da</color>
+    <color name="shade4">#b0b4bd</color>
+    <color name="shade5">#90949e</color>
+    <color name="shade6">#717580</color>
+    <color name="shade7">#595d66</color>
+    <color name="shade8">#42454c</color>
+    <color name="shade9">#33353a</color>
+    <color name="shade10">#242529</color>
+    <color name="shade11">#191b1e</color>
+    <color name="shade12">#0f1114</color>
+
+    <!--Rating-->
+    <color name="rating_normal">#ffb10a</color>
+    <color name="rating_low">#ff424f</color>
+    <color name="rating_high">#4ce04c</color>
+
+    <!-- Main activity-->
+    <color name="sky_blue_s0">#80ffffff</color>
+    <color name="sky_blue_s1">#72b1f1</color>
+    <color name="sky_blue_s2">#2077fd</color>
+
+    <!--Gradient pair-->
+    <color name="grd_1_p">#1468e5</color>
+    <color name="grd_1_s">#4ca6ff</color>
+
+    <color name="transparent_black">#88000000</color>
+    <color name="transparent_white">#f0ffffff</color>
+    <color name="splash_color">#368bf2</color>
+    <color name="loading_color">#fbf8f7</color>
+</resources>

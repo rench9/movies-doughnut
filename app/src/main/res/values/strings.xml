@@ -1,0 +1,43 @@
+<resources>
+    <!-- API key -->
+    <string name="api_key"></string>
+
+
+    <string name="app_name">Movies Doughnut</string>
+
+    <!-- Font Family -->
+    <string name="font_family_light">sans-serif-light</string>
+    <string name="font_family_medium">sans-serif-medium</string>
+    <string name="font_family_regular">sans-serif</string>
+    <string name="font_family_condensed">sans-serif-condensed</string>
+    <string name="font_family_black">sans-serif-black</string>
+    <string name="font_family_thin">sans-serif-thin</string>
+
+    <!-- string attributes-->
+    <string name="search">Search</string>
+    <string name="all">All</string>
+    <string name="popularity">Popularity</string>
+    <string name="rating">Rating</string>
+    <string name="release_date">Release Date</string>
+    <string name="title">Title</string>
+    <string name="movies">Movies</string>
+
+    <string name="popular_movies">Popular movies</string>
+
+    <string name="top_rated_movies">Top rated movies</string>
+
+    <string name="upcoming_movies">Upcoming movies</string>
+
+    <string name="now_playing_movies">Now playing</string>
+    <string name="description">Description</string>
+    <string name="cast">Cast</string>
+    <string name="photos">Photos</string>
+    <string name="stay_connected">Stay Connected</string>
+
+    <!--transition names-->
+    <string name="cv_poster_transition">cv_poster_transition</string>
+    <string name="imdb">IMDb</string>
+    <string name="website">Website</string>
+
+
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="@dimen/movie_card_w"
+    android:layout_height="wrap_content"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/unit3"
+
+            android:translationZ="@dimen/elevation3"
+            app:cardCornerRadius="@dimen/radius2"
+            app:cardElevation="@dimen/elevation3">
+
+            <com.yahoo.rahul.moviesdoughnut.customClass.PosterImageView
+                android:transitionName="@string/cv_poster_transition"
+                android:id="@id/ivPoster"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:adjustViewBounds="true" />
+        </android.support.v7.widget.CardView>
+
+        <TextView
+            android:id="@id/tvRating"
+            style="@style/typography_caption_light"
+            android:layout_width="@dimen/unit11"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/shape_round_rect"
+            android:backgroundTint="@color/rating_normal"
+            android:elevation="@dimen/elevation4"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:translationZ="@dimen/elevation6" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@id/tvMovieName"
+        style="@style/typography_body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/unit2"
+        android:ellipsize="marquee"
+        android:fadingEdge="horizontal"
+        android:focusable="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:textColor="@color/shade0"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@id/tvDuration"
+        style="@style/typography_caption_light"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/sky_blue_s0" />
+</LinearLayout>

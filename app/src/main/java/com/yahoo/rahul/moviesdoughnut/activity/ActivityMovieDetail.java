@@ -127,7 +127,7 @@ public class ActivityMovieDetail extends AppCompatActivity {
     private TmdbService tmdbService;
     private Toast toast;
     @BindString(R.string.api_key)
-    private String API;
+    public String API;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

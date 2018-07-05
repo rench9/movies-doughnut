@@ -41,7 +41,7 @@ public class ActivityMoviesGallery extends AppCompatActivity {
     @BindView(R.id.abPrimary)
     AppBarLayout abPrimary;
     @BindString(R.string.api_key)
-    private String API;
+    public String API;
 
     private SplashScreenFragment splashScreenFragment;
     private TmdbService tmdbService;

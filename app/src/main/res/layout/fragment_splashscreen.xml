@@ -9,8 +9,8 @@
 
     <ImageView
         android:id="@id/ivLoading"
-        android:layout_width="180dp"
-        android:layout_height="180dp"
+        android:layout_width="@dimen/splash_logo_w"
+        android:layout_height="@dimen/splash_logo_w"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

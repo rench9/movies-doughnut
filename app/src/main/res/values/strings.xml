@@ -38,6 +38,7 @@
     <string name="cv_poster_transition">cv_poster_transition</string>
     <string name="imdb">IMDb</string>
     <string name="website">Website</string>
+    <string name="filter">Filter</string>
 
 
 </resources>

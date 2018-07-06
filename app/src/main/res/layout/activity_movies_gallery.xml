@@ -18,6 +18,7 @@
         android:paddingEnd="@dimen/unit2"
         android:paddingStart="@dimen/unit2"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
     <android.support.design.widget.AppBarLayout
         android:id="@id/abPrimary"
         style="@style/AppTheme.ActionBar.Light.Transparent"
@@ -139,6 +140,25 @@
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
+    <Spinner
+        android:id="@id/spnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/sky_blue_s2"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:dropDownSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:popupBackground="@android:color/transparent"
+        android:popupElevation="0dp"
+        android:scrollbars="none"
+        android:spinnerMode="dropdown"
+        android:visibility="invisible"
+        app:layout_anchor="@id/abPrimary"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="com.yahoo.rahul.moviesdoughnut.customClass.ScrollingBehaviourViewGroup" />
+
     <com.yahoo.rahul.moviesdoughnut.customClass.SearchTextInputLayout
         android:id="@id/tilSearch"
         android:layout_width="@dimen/search_bar_w"
@@ -146,6 +166,7 @@
         android:background="@drawable/shape_round_rect"
         android:backgroundTint="@color/sky_blue_s2"
         android:gravity="center"
+        android:visibility="visible"
         app:hintEnabled="false"
         app:hintTextAppearance="@style/typography_button"
         app:layout_anchor="@id/abPrimary"

@@ -3,6 +3,7 @@
     <item name="abPrimary" type="id" />
     <item name="action_filter" type="id">action_filter</item>
     <item name="cvCast" type="id">tvPhoto</item>
+    <item name="cvContainer" type="id">tvPhoto</item>
     <item name="cvFloating" type="id">tvPhoto</item>
     <item name="etSearch" type="id">etSearch</item>
     <item name="flContainer" type="id">flContainer</item>
@@ -55,4 +56,7 @@
     <item name="tvFacebook" type="id">tvFacebook</item>
     <item name="tvImdb" type="id">tvImdb</item>
     <item name="tvWebsite" type="id">tvWebsite</item>
+    <item name="tvItem" type="id">tvItem</item>
+    <item name="spnContainer" type="id">spnContainer</item>
+    <item name="action_search" type="id">action_search</item>
 </resources>

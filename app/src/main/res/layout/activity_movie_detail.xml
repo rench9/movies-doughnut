@@ -448,8 +448,7 @@
                         android:id="@id/tvTwitter"
                         style="@style/typography_caption_bold"
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="twitter" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -487,7 +486,6 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.design.widget.CollapsingToolbarLayout
-            android:id="@+id/toolbar_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"

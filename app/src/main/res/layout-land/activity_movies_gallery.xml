@@ -140,6 +140,25 @@
     </android.support.design.widget.AppBarLayout>
 
 
+    <Spinner
+        android:id="@id/spnContainer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:backgroundTint="@color/sky_blue_s2"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:dropDownSelector="@android:color/transparent"
+        android:overScrollMode="never"
+        android:popupBackground="@android:color/transparent"
+        android:popupElevation="0dp"
+        android:scrollbars="none"
+        android:spinnerMode="dropdown"
+        android:visibility="invisible"
+        app:layout_anchor="@id/abPrimary"
+        app:layout_anchorGravity="center"
+        app:layout_behavior="com.yahoo.rahul.moviesdoughnut.customClass.ScrollingBehaviourViewGroup" />
+
     <com.yahoo.rahul.moviesdoughnut.customClass.SearchTextInputLayout
         android:id="@id/tilSearch"
         android:layout_width="@dimen/search_bar_w"

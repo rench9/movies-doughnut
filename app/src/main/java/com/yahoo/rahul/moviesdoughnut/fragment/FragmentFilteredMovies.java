@@ -21,7 +21,10 @@ import com.yahoo.rahul.moviesdoughnut.activity.ActivityMovieDetail;
 import com.yahoo.rahul.moviesdoughnut.activity.ActivityMoviesGallery;
 import com.yahoo.rahul.moviesdoughnut.api.TmdbService;
 import com.yahoo.rahul.moviesdoughnut.api.TmdbUtils;
-import com.yahoo.rahul.moviesdoughnut.api.response.DiscoverMovieResponse;
+import com.yahoo.rahul.moviesdoughnut.api.response.NowPlayingMovieResponse;
+import com.yahoo.rahul.moviesdoughnut.api.response.PopularMovieResponse;
+import com.yahoo.rahul.moviesdoughnut.api.response.TopRatedMovieResponse;
+import com.yahoo.rahul.moviesdoughnut.api.response.UpcomingMovieResponse;
 import com.yahoo.rahul.moviesdoughnut.api.response.model.Movie;
 import com.yahoo.rahul.moviesdoughnut.customClass.GlideApp;
 import com.yahoo.rahul.moviesdoughnut.customClass.RecyclerViewPaginationOnScroll;
@@ -51,11 +54,20 @@ public class FragmentFilteredMovies extends Fragment {
     public static final String VOTE_AVERAGE_DESC = "vote_average.desc";
     public static final String VOTE_COUNT_ASC = "vote_count.asc";
     public static final String VOTE_COUNT_DESC = "vote_count.desc";
+
+    public static final int TOPRATED = 1001;
+    public static final int NOWPLAYING = 1002;
+    public static final int UPCOMING = 1003;
+    public static final int POPULAR = 1004;
     @BindView(R.id.rvContainer_filtered_movie)
     RecyclerView rvContainer_filtered_movie;
     MovieCardAdapter movieCardAdapter;
     private TmdbService tmdbService;
-    private String filter;
+    private int filter;
+
+    private boolean loading = false;
+    private boolean last = false;
+    private int count = 0;
 
     public FragmentFilteredMovies() {
 
@@ -66,7 +78,7 @@ public class FragmentFilteredMovies extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_filtered_movies, container, false);
         ButterKnife.bind(this, v);
-        filter = POPULARITY_DESC;
+        filter = POPULAR;
         tmdbService = ((ActivityMoviesGallery) Objects.requireNonNull(getActivity())).getTmdbService();
         movieCardAdapter = new MovieCardAdapter(new ArrayList<Movie>());
         rvContainer_filtered_movie.setLayoutManager(new GridLayoutManager(v.getContext(), isLandscape() ? 6 : 3, GridLayoutManager.VERTICAL, false));
@@ -91,38 +103,11 @@ public class FragmentFilteredMovies extends Fragment {
         rvContainer_filtered_movie.setAdapter(movieCardAdapter);
 
         rvContainer_filtered_movie.addOnScrollListener(new RecyclerViewPaginationOnScroll() {
-            private boolean loading = false;
-            private boolean last = false;
-            private int count = 2;
+
 
             @Override
             protected void loadMoreItems() {
-                tmdbService.discover.discoverMovies(filter, count).subscribe(new MaybeObserver<DiscoverMovieResponse>() {
-                    @Override
-                    public void onSubscribe(Disposable d) {
-                        loading = true;
-                    }
-
-                    @Override
-                    public void onSuccess(DiscoverMovieResponse discoverMovieResponse) {
-                        movieCardAdapter.addAllItems(discoverMovieResponse.getResults());
-                        loading = false;
-                        count++;
-                        if (count > discoverMovieResponse.getTotal_pages())
-                            last = true;
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-                        loading = false;
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        loading = false;
-                    }
-                });
-
+                loadMovies(filter, count);
             }
 
             @Override
@@ -140,34 +125,130 @@ public class FragmentFilteredMovies extends Fragment {
                 return loading;
             }
         });
-        loadMovies(POPULARITY_DESC);
+        loadMovies(POPULAR);
         return v;
     }
 
-    public void loadMovies(final String filter) {
-        movieCardAdapter.removeAllItems();
-        tmdbService.discover.discoverMovies(filter, 1).subscribe(new MaybeObserver<DiscoverMovieResponse>() {
-            @Override
-            public void onSubscribe(Disposable d) {
-
-            }
-
-            @Override
-            public void onSuccess(DiscoverMovieResponse discoverMovieResponse) {
-                movieCardAdapter.addAllItems(discoverMovieResponse.getResults());
-            }
-
-            @Override
-            public void onError(Throwable e) {
-
-            }
-
-            @Override
-            public void onComplete() {
-
-            }
-        });
+    public void loadMovies(int filter) {
+        if (this.filter != filter) {
+            count = 0;
+            loading = false;
+            last = false;
+        }
         this.filter = filter;
+        this.loadMovies(filter, 1);
+    }
+
+    private void loadMovies(final int filter, int page) {
+        movieCardAdapter.removeAllItems();
+        switch (filter) {
+            case TOPRATED:
+                tmdbService.discover.getTopRatedMovies(1).subscribe(new MaybeObserver<TopRatedMovieResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        loading = true;
+                    }
+
+                    @Override
+                    public void onSuccess(TopRatedMovieResponse topRatedMovieResponse) {
+                        movieCardAdapter.addAllItems(topRatedMovieResponse.getResults());
+                        loading = false;
+                        count = topRatedMovieResponse.getPage() + 1;
+                        if (count > topRatedMovieResponse.getTotal_pages())
+                            last = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        loading = false;
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        loading = false;
+                    }
+                });
+                break;
+            case NOWPLAYING:
+                tmdbService.discover.getNowPlayingMovies(1).subscribe(new MaybeObserver<NowPlayingMovieResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        loading = true;
+                    }
+
+                    @Override
+                    public void onSuccess(NowPlayingMovieResponse nowPlayingMovieResponse) {
+                        movieCardAdapter.addAllItems(nowPlayingMovieResponse.getResults());
+                        count = nowPlayingMovieResponse.getPage() + 1;
+                        if (count > nowPlayingMovieResponse.getTotal_pages())
+                            last = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        loading = false;
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        loading = false;
+                    }
+                });
+                break;
+            case UPCOMING:
+                tmdbService.discover.getUpcomingMovies(1).subscribe(new MaybeObserver<UpcomingMovieResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        loading = true;
+                    }
+
+                    @Override
+                    public void onSuccess(UpcomingMovieResponse upcomingMovieResponse) {
+                        movieCardAdapter.addAllItems(upcomingMovieResponse.getResults());
+                        count = upcomingMovieResponse.getPage() + 1;
+                        if (count > upcomingMovieResponse.getTotal_pages())
+                            last = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        loading = false;
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        loading = false;
+                    }
+                });
+                break;
+            default:
+                tmdbService.discover.getPopularMovies(1).subscribe(new MaybeObserver<PopularMovieResponse>() {
+                    @Override
+                    public void onSubscribe(Disposable d) {
+                        loading = true;
+                    }
+
+                    @Override
+                    public void onSuccess(PopularMovieResponse popularMovieResponse) {
+                        movieCardAdapter.addAllItems(popularMovieResponse.getResults());
+                        count = popularMovieResponse.getPage() + 1;
+                        if (count > popularMovieResponse.getTotal_pages())
+                            last = true;
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        loading = false;
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        loading = false;
+                    }
+                });
+                break;
+        }
+
 
     }
 

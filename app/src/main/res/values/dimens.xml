@@ -68,8 +68,10 @@
     <!-- Views -->
     <dimen name="app_bar_height">140dp</dimen>
     <dimen name="app_bar_height_land">80dp</dimen>
+    <dimen name="filter_w">250dp</dimen>
     <dimen name="search_bar_w">300dp</dimen>
     <dimen name="search_bar_h">38dp</dimen>
+    <dimen name="search_bar_r">19dp</dimen>
     <dimen name="movie_card_w">116dp</dimen>
     <dimen name="no_height">0dp</dimen>
 
@@ -77,5 +79,8 @@
     <dimen name="cast_image_r">25dp</dimen>
 
     <dimen name="social_icon">36dp</dimen>
+    <dimen name="filter_bar_h">30dp</dimen>
+    <dimen name="filter_bar_r">15dp</dimen>
+    <dimen name="splash_logo_w">180dp</dimen>
 
 </resources>

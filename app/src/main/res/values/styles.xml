@@ -77,6 +77,17 @@
 
     </style>
 
+    <!-- Dialogue fragment --> <!--TODO transparent-->
+    <style name="AppTheme.Dialogue.Light" parent="Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:backgroundDimEnabled">false</item>
+    </style>
 
     <!-- Typography -->
     <style name="typography_dark">
@@ -210,6 +221,44 @@
         <item name="android:textAllCaps">true</item>
         <item name="android:fontFamily">@string/font_family_medium</item>
     </style>
+
+
+    <!-- Buttons -->
+    <style name="button" parent="typography_button_light">
+        <item name="android:background">@drawable/button_primary_dark</item>
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:height">24dp</item>
+        <item name="android:minHeight">34dp</item>
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:foreground">?attr/selectableItemBackgroundBorderless</item>
+        <item name="android:clickable">true</item>
+    </style>
+
+    <style name="button_primary_dark" parent="button">
+        <item name="android:background">@drawable/button_primary_dark</item>
+        <item name="android:textColor">@android:color/white</item>
+
+    </style>
+
+    <style name="button_primary_light" parent="button">
+        <item name="android:background">@drawable/button_primary_light</item>
+        <item name="android:textColor">@color/shade4</item>
+    </style>
+
+    <style name="button_secondary_dark" parent="button">
+        <item name="android:background">@drawable/button_secondary_dark</item>
+        <item name="android:textColor">@color/button_text_sec_dark</item>
+    </style>
+
+    <style name="button_secondary_light" parent="button">
+        <item name="android:background">@drawable/button_secondary_light</item>
+        <item name="android:textColor">@color/button_text_sec_light</item>
+    </style>
+
 
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

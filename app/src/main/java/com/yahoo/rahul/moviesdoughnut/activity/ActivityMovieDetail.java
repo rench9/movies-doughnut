@@ -464,6 +464,7 @@ public class ActivityMovieDetail extends AppCompatActivity {
         tbPrimary.setNavigationIcon(R.drawable.ic_back_dark);
     }
 
+
     private boolean isLandscape() {
         return getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE;
     }

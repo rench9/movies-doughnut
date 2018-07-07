@@ -35,6 +35,7 @@ import android.widget.TextView;
 import com.yahoo.rahul.moviesdoughnut.R;
 import com.yahoo.rahul.moviesdoughnut.api.TmdbService;
 import com.yahoo.rahul.moviesdoughnut.customClass.SearchTextInputLayout;
+import com.yahoo.rahul.moviesdoughnut.fragment.FragmentAlert;
 import com.yahoo.rahul.moviesdoughnut.fragment.FragmentFilteredMovies;
 import com.yahoo.rahul.moviesdoughnut.fragment.FragmentMoviesGallery;
 import com.yahoo.rahul.moviesdoughnut.fragment.SplashScreenFragment;
@@ -44,6 +45,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ActivityMoviesGallery extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
+    public static final String ALERTDIALOG = "alertdialog";
+
     @BindView(R.id.tbPrimary)
     Toolbar toolbar;
     @BindView(R.id.tilSearch)
@@ -115,6 +118,7 @@ public class ActivityMoviesGallery extends AppCompatActivity implements AdapterV
         });
         showMovieGallery();
         initFilterSpinner();
+
     }
 
     private void initFilterSpinner() {
@@ -143,6 +147,18 @@ public class ActivityMoviesGallery extends AppCompatActivity implements AdapterV
         splashScreenFragment.show(ft, "splash_dialog");
         splashScreenFragment.setCancelable(false);
 
+    }
+
+    public void showErrorDialog(String title, String message, int drawable) {
+        FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
+        Fragment prevFragment = getSupportFragmentManager().findFragmentByTag(ALERTDIALOG);
+        if (prevFragment != null) {
+            fragmentTransaction.remove(prevFragment);
+        }
+        fragmentTransaction.addToBackStack(null);
+        FragmentAlert fragmentAlert = new FragmentAlert();
+        fragmentAlert.setCancelable(false);
+        fragmentAlert.show(getSupportFragmentManager(), ALERTDIALOG);
     }
 
     public void hideDialog() {

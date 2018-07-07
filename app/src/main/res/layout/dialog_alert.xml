@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/AppTheme.Dialogue.Light"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="@dimen/unit5"
+        android:layout_marginStart="@dimen/unit5"
+        android:layout_marginTop="@dimen/unit10"
+        android:elevation="@dimen/elevation4"
+        app:cardCornerRadius="@dimen/radius5">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/unit21"
+                android:background="@color/grd_2_p" />
+
+            <TextView
+                android:id="@id/tvTitle"
+                style="@style/typography_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/unit5"
+                android:layout_marginStart="@dimen/unit5"
+                android:layout_marginTop="@dimen/unit3"
+                android:text="@string/no_api_title"
+                android:textColor="@color/shade9" />
+
+            <TextView
+                android:id="@id/priMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/unit5"
+                android:layout_marginStart="@dimen/unit5"
+                android:text="@string/alert_msg_api"
+                android:textColor="@color/shade11" />
+
+            <TextView
+                android:id="@id/secMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/unit5"
+                android:layout_marginStart="@dimen/unit5"
+                android:layout_marginTop="@dimen/unit1"
+                android:autoLink="web"
+                android:linksClickable="true"
+                android:text="@string/api_url"
+                android:textColor="@color/shade11" />
+
+            <Button
+                android:id="@id/btnExit"
+                style="@style/button_secondary_dark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/unit5"
+                android:text="@string/exit" />
+        </LinearLayout>
+    </android.support.v7.widget.CardView>
+
+    <ImageView
+        android:id="@id/ivIcon"
+        android:layout_width="@dimen/unit26"
+        android:layout_height="@dimen/unit26"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:elevation="@dimen/elevation5"
+        android:scaleType="fitCenter"
+        android:src="@drawable/ic_bell" />
+</RelativeLayout>

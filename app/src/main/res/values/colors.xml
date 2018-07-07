@@ -33,6 +33,9 @@
     <color name="grd_1_p">#1468e5</color>
     <color name="grd_1_s">#4ca6ff</color>
 
+
+    <color name="grd_2_p">#3d425f</color>
+
     <color name="transparent_black">#88000000</color>
     <color name="transparent_white">#f0ffffff</color>
     <color name="splash_color">#368bf2</color>

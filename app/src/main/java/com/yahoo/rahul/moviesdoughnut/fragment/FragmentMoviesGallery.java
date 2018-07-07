@@ -16,6 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.yahoo.rahul.moviesdoughnut.R;
 import com.yahoo.rahul.moviesdoughnut.activity.ActivityMovieDetail;
 import com.yahoo.rahul.moviesdoughnut.activity.ActivityMoviesGallery;
@@ -29,6 +30,7 @@ import com.yahoo.rahul.moviesdoughnut.api.response.model.Movie;
 import com.yahoo.rahul.moviesdoughnut.customClass.GlideApp;
 import com.yahoo.rahul.moviesdoughnut.customClass.RecyclerViewPaginationOnScroll;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -36,6 +38,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import io.reactivex.MaybeObserver;
 import io.reactivex.disposables.Disposable;
+import retrofit2.HttpException;
 
 public class FragmentMoviesGallery extends Fragment {
     @BindView(R.id.rvContainer_popular_movie)
@@ -122,7 +125,19 @@ public class FragmentMoviesGallery extends Fragment {
 
             @Override
             public void onError(Throwable e) {
+                HttpException error = (HttpException) e;
+                try {
+                    if (error.response().code() == 401) {
+                        String errorBody = error.response().errorBody().string();
+                        PopularMovieResponse popularMovieResponse = new Gson().fromJson(errorBody, PopularMovieResponse.class);
 
+                        if (popularMovieResponse.getStatus_message() != null) {
+                            ((ActivityMoviesGallery) getActivity()).showErrorDialog("API key invalid", popularMovieResponse.getStatus_message(), R.drawable.ic_bell);
+                        }
+                    }
+                } catch (IOException e1) {
+                    e1.printStackTrace();
+                }
             }
 
             @Override

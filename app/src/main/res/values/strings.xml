@@ -39,6 +39,10 @@
     <string name="imdb">IMDb</string>
     <string name="website">Website</string>
     <string name="filter">Filter</string>
+    <string name="alert_msg_api">Seems like there is no API key added to the App Visit he link below to get the API</string>
+    <string name="api_url"><a href="https://github.com/rench9/movies-doughnut">Click here</a> to know more about API</string>
+    <string name="no_api_title">No API key found</string>
+    <string name="exit">Exit</string>
 
 
 </resources>
